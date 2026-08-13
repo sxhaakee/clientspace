@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
               },
             },
             product_options: {
-              redirect_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://clientspace-iota.vercel.app'}/dashboard/billing?success=true`,
+              redirect_url: `${process.env.NEXT_PUBLIC_APP_URL || request.nextUrl.origin}/dashboard/billing?success=true`,
             },
           },
           relationships: {
