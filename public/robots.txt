@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /portal/
+
+Sitemap: https://www.clientspace.xyz/sitemap_index.xml
+Sitemap: https://www.clientspace.xyz/sitemap.xml
