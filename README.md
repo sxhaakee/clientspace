@@ -4,7 +4,7 @@ ClientSpace is a client delivery workspace for freelancers and small agencies. I
 
 This repository is optimized for a premium, low-friction client experience: clients do not need to create an account to review work, approve files, sign contracts, or leave feedback through their portal link.
 
-## What This App Does
+## What This App Does ✨
 
 ClientSpace is built around a few concrete workflows:
 
@@ -15,21 +15,21 @@ ClientSpace is built around a few concrete workflows:
 5. Billing upgrades are handled through Lemon Squeezy, with subscription state mirrored into Supabase.
 6. Automated email notifications keep both sides informed when project events happen.
 
-## System Overview
+## System Overview 🧭
 
 ```mermaid
 flowchart TD
-  A[Next.js App Router] --> B[Dashboard and Public Pages]
-  A --> C[API Routes]
-  C --> D[Supabase Database and Auth]
-  C --> E[Supabase Admin Client]
-  C --> F[Brevo Transactional Email]
-  C --> G[Lemon Squeezy Billing]
-  C --> H[Mistral AI]
+  A["Next.js App Router"] --> B["Dashboard and Public Pages"]
+  A --> C["API Routes"]
+  C --> D["Supabase Database and Auth"]
+  C --> E["Supabase Admin Client"]
+  C --> F["Brevo Transactional Email"]
+  C --> G["Lemon Squeezy Billing"]
+  C --> H["Mistral AI"]
 
-  B --> I[Client Portal /portal/[token]]
-  B --> J[Dashboard /dashboard/*]
-  D --> K[Projects, Files, Milestones, Comments, Contracts, Logs]
+  B --> I["Client Portal: /portal/[token]"]
+  B --> J["Dashboard: /dashboard/*"]
+  D --> K["Projects, Files, Milestones, Comments, Contracts, Logs"]
   G --> D
   F --> D
 ```
@@ -46,7 +46,7 @@ The codebase follows a few practical rules rather than cosmetic ones:
 - Prefer explicit validation and defensive defaults over hidden assumptions.
 - Build for production ergonomics: clean redirects, typed routes, safe webhook handling, and environment-driven configuration.
 
-## Main Product Surfaces
+## Main Product Surfaces 🧩
 
 ### Dashboard
 
@@ -60,7 +60,7 @@ The public project portal lives at `/portal/[token]`. It loads project data, mil
 
 The app also includes marketing and legal pages such as the homepage, audience pages, login and onboarding flows, privacy policy, refunds, and terms.
 
-## API Surface
+## API Surface ⚙️
 
 The backend is intentionally small and action-focused:
 
@@ -73,7 +73,7 @@ The backend is intentionally small and action-focused:
 - `POST /api/ai/proposal` drafts a project proposal in Markdown.
 - `POST /api/ai/status-update` drafts a client-facing progress update email.
 
-## Data And Security Model
+## Data And Security Model 🔒
 
 Supabase is the source of truth for users, projects, files, milestones, comments, contracts, invoices, and logs.
 
@@ -83,7 +83,7 @@ Supabase is the source of truth for users, projects, files, milestones, comments
 - Lemon Squeezy webhook payloads are validated with an HMAC signature check before subscription updates are applied.
 - Portal mutations are written back into project-specific tables and logged as discrete events.
 
-## AI-Driven Actions
+## AI-Driven Actions 🤖
 
 AI features are not generic chat. They are task-specific tools that produce usable work output:
 
@@ -93,7 +93,7 @@ AI features are not generic chat. They are task-specific tools that produce usab
 
 If `MISTRAL_API_KEY` is missing, the routes return deterministic fallback content so the app can still be exercised during local setup.
 
-## Repository Structure
+## Repository Structure 📦
 
 ```text
 app/                Next.js routes, pages, layouts, and API handlers
@@ -103,7 +103,7 @@ public/             Static files, sitemap, and robots configuration
 supabase/           SQL schema, RLS fixes, and admin security scripts
 ```
 
-## Getting Started
+## Getting Started 🚀
 
 ### Prerequisites
 
@@ -169,7 +169,7 @@ npm run start
 npm run lint
 ```
 
-## Operational Actions
+## Operational Actions ✅
 
 Use this as the day-to-day checklist for working on the app:
 
@@ -182,7 +182,7 @@ Use this as the day-to-day checklist for working on the app:
 7. Test AI routes with and without `MISTRAL_API_KEY` to confirm fallback behavior.
 8. Confirm the app builds cleanly before merging changes.
 
-## Deployment Notes
+## Deployment Notes 🌐
 
 - Set `NEXT_PUBLIC_APP_URL` to the canonical production origin.
 - Use a real Supabase service-role key only on the server.
@@ -190,14 +190,14 @@ Use this as the day-to-day checklist for working on the app:
 - Configure Brevo sender details so transactional mail comes from the correct identity.
 - If you use Google site verification, wire the token through `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
 
-## Development Notes
+## Development Notes 🛠️
 
 - The app router structure is organized by product surface, not by technical layer.
 - API routes are intentionally narrow and map to user actions.
 - `lib/` contains the shared primitives used across the app, including Supabase clients and email helpers.
 - `supabase/` contains the SQL artifacts needed to keep the backend schema and policies aligned with the app.
 
-## Suggested Validation Flow
+## Suggested Validation Flow 🧪
 
 When changing application code, run the smallest check that proves the slice still works:
 
@@ -205,6 +205,6 @@ When changing application code, run the smallest check that proves the slice sti
 2. Run `npm run build` before release or when touching route handlers, auth, or server logic.
 3. Test the specific workflow you changed, such as portal data loading, a webhook payload, or an AI route.
 
-## Summary
+## Summary 📘
 
 ClientSpace is designed to turn freelance delivery into a repeatable system: one project record, one client portal, one source of truth, and a set of focused backend actions that keep delivery, billing, and communication aligned.
