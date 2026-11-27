@@ -49,10 +49,10 @@ export default function RefundPolicyPage() {
           
           <section className="flex flex-col gap-3">
             <h2 className="text-lg font-serif text-[#18181B] font-bold uppercase tracking-wide border-b border-[#E4E4E7] pb-2">
-              1. Trial Periods
+              1. Free Plan
             </h2>
             <p>
-              ClientSpace offers a 14-day free trial for our Professional tier to let you explore the complete suite of client portals, contract e-signing, and AI invoicing without risk. You can cancel at any time during this trial period and you will not be billed.
+              ClientSpace has a free Starter plan, so you can use client portals, contracts and invoices before upgrading. The Pro plan can be cancelled at any time.
             </p>
           </section>
 

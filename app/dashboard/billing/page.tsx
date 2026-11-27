@@ -191,7 +191,7 @@ function BillingPageContent() {
                 <span className="text-[9px] uppercase font-bold tracking-widest text-brand-muted font-mono">Registered Projects</span>
                 <span className="text-3xl font-mono font-bold text-brand-text mt-1">{projectCount}</span>
                 <span className="text-[10px] text-brand-muted font-sans mt-0.5">
-                  {isPro ? 'Unlimited workspaces' : 'Sandbox limit: 3 active'}
+                  {isPro ? 'All features + AI drafting' : 'All core features'}
                 </span>
               </div>
 

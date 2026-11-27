@@ -40,7 +40,7 @@ The codebase follows a few practical rules rather than cosmetic ones:
 
 - Keep privileged operations server-side. Admin database access is isolated behind service-role clients.
 - Use route-scoped actions. Every mutation has a specific API endpoint and a clear failure mode.
-- Gate expensive AI features by plan. Pro and Agency tiers are required for invoice, proposal, and status generation.
+- Gate expensive AI features by plan. The Pro plan is required for invoice, proposal, and status generation.
 - Treat the client portal as a first-class product surface, not an afterthought.
 - Record meaningful events in logs so project activity is auditable.
 - Prefer explicit validation and defensive defaults over hidden assumptions.

@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2, Shield, Zap, Sparkles, FileText, Send, Star, Globe, Lock, Layers, Crown } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Shield, Zap, Sparkles, FileText, Send, Globe, Lock, Layers } from 'lucide-react';
 
 const G = '#C8F04B', D = '#18181B', M = '#71717A', W = '#FAFAF8', B = '#E4E4E7';
 
@@ -107,18 +107,6 @@ export default function LandingPage() {
                 Explore Features
               </a>
             </div>
-
-            <div className="animate-hero animate-hero-delay-4 mt-10 sm:mt-14 flex items-center gap-5 flex-wrap">
-              <div className="flex -space-x-2">
-                {['E', 'S', 'A', 'M', 'K'].map((l, i) => (
-                  <div key={i} className="w-9 h-9 rounded-full flex items-center justify-center text-[11px] font-bold border-2 shrink-0" style={{ background: i % 2 === 0 ? G : D, color: i % 2 === 0 ? D : G, borderColor: W, zIndex: 5 - i }}>{l}</div>
-                ))}
-              </div>
-              <div>
-                <div className="flex gap-0.5">{[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill={G} style={{ color: G }} />)}</div>
-                <span className="text-xs mt-1 block" style={{ color: M }}>Loved by 800+ creatives worldwide</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -191,9 +179,9 @@ export default function LandingPage() {
           {/* Row 2: 3 smaller cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
-              { icon: Send, title: 'Email Automation', desc: 'Brevo sends elegant status updates when milestones move or files upload.', bg: D, fg: W, ic: G, tc: '#888' },
-              { icon: FileText, title: 'Digital Contracts', desc: 'Draft, send & get legally-binding e-signatures with IP verification.', bg: G, fg: D, ic: D, tc: '#3d4a00' },
-              { icon: Lock, title: 'Enterprise Security', desc: 'Supabase RLS ensures every record is cryptographically scoped.', bg: '#F0F0EC', fg: D, ic: D, tc: M },
+              { icon: Send, title: 'Email Automation', desc: 'Clients get an email when you post an update, send an invoice or comment, and you hear back when they approve files or sign.', bg: D, fg: W, ic: G, tc: '#888' },
+              { icon: FileText, title: 'Digital Contracts', desc: 'Draft contracts and collect e-signatures, with the signer\'s IP and time recorded.', bg: G, fg: D, ic: D, tc: '#3d4a00' },
+              { icon: Lock, title: 'Enterprise Security', desc: 'Row-level security in Supabase scopes every record to the account that owns it.', bg: '#F0F0EC', fg: D, ic: D, tc: M },
             ].map((f, i) => (
               <div key={f.title} className={`reveal reveal-delay-${i + 1} premium-card p-8 sm:p-10 flex flex-col justify-between min-h-[260px] sm:min-h-[300px]`} style={{ background: f.bg, color: f.fg }}>
                 <f.icon size={28} style={{ color: f.ic }} />
@@ -246,7 +234,7 @@ export default function LandingPage() {
             <p className="mt-5 text-lg max-w-xl mx-auto leading-relaxed" style={{ color: M }}>No hidden fees. No commissions. Cancel anytime.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
             {/* Free */}
             <div className="reveal reveal-delay-1 premium-card p-8 sm:p-10 flex flex-col gap-6" style={{ background: '#F4F4F5', border: `1px solid ${B}` }}>
               <div>
@@ -258,7 +246,7 @@ export default function LandingPage() {
                 <p className="text-sm mt-2" style={{ color: M }}>Explore the platform free.</p>
               </div>
               <ul className="flex flex-col gap-3 text-sm flex-1" style={{ color: D }}>
-                {['2 Active Projects', '1 Client Portal', 'Basic Invoicing', '100MB File Storage', 'Community Support'].map(f => (
+                {['Projects & Client Portals', 'Milestones, Files & Feedback', 'Invoices', 'Contract E-Signing', 'Email Notifications'].map(f => (
                   <li key={f} className="flex items-center gap-2.5"><CheckCircle2 size={16} style={{ color: M }} />{f}</li>
                 ))}
               </ul>
@@ -281,37 +269,14 @@ export default function LandingPage() {
                   <p className="text-sm mt-2" style={{ color: '#71717A' }}>Everything for premium delivery.</p>
                 </div>
                 <ul className="flex flex-col gap-3 text-sm flex-1" style={{ color: '#ccc' }}>
-                  {['Unlimited Projects', 'Unlimited Portals', 'AI Invoices & Proposals', 'Brevo Email Automation', 'Contract E-Signing', 'Unlimited Storage', 'Priority Support'].map(f => (
+                  {['Everything in Starter', 'AI-Drafted Invoices', 'AI-Drafted Proposals', 'AI Status Updates'].map(f => (
                     <li key={f} className="flex items-center gap-2.5"><CheckCircle2 size={16} style={{ color: G }} />{f}</li>
                   ))}
                 </ul>
                 <Link href="/signup" className="w-full text-center text-sm uppercase font-bold tracking-widest py-4 flex items-center justify-center gap-2 hover:brightness-95 transition-all" style={{ background: G, color: D }}>
-                  Start 14-Day Trial <ArrowRight size={14} />
+                  Get Started <ArrowRight size={14} />
                 </Link>
               </div>
-            </div>
-
-            {/* Ultra */}
-            <div className="reveal reveal-delay-3 premium-card p-8 sm:p-10 flex flex-col gap-6" style={{ background: '#F4F4F5', border: `1px solid ${B}` }}>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase font-bold tracking-[0.2em]" style={{ color: D }}>Ultra</span>
-                  <Crown size={14} style={{ color: G }} />
-                </div>
-                <div className="flex items-baseline gap-1 mt-3">
-                  <span className="text-5xl sm:text-6xl font-serif font-bold" style={{ color: D }}>$39</span>
-                  <span className="text-base" style={{ color: M }}>/mo</span>
-                </div>
-                <p className="text-sm mt-2" style={{ color: M }}>For agencies & power users.</p>
-              </div>
-              <ul className="flex flex-col gap-3 text-sm flex-1" style={{ color: D }}>
-                {['Everything in Pro', 'Team Collab (5 seats)', 'White-Label Portals', 'Custom Domain Support', 'Advanced Analytics', 'Webhook Integrations', 'Dedicated Manager'].map(f => (
-                  <li key={f} className="flex items-center gap-2.5"><CheckCircle2 size={16} style={{ color: G }} />{f}</li>
-                ))}
-              </ul>
-              <Link href="/signup" className="w-full text-center text-sm uppercase font-bold tracking-widest py-4 hover:brightness-95 transition-all" style={{ background: D, color: G }}>
-                Contact Sales
-              </Link>
             </div>
           </div>
         </div>
@@ -325,7 +290,7 @@ export default function LandingPage() {
             Your clients deserve better than a Google Drive link.
           </h2>
           <p className="reveal reveal-delay-1 mt-6 text-lg leading-relaxed max-w-lg mx-auto" style={{ color: '#3d4a00' }}>
-            Join hundreds of creatives who upgraded how they deliver work.
+            One link for files, approvals, contracts and invoices.
           </p>
           <Link href="/signup" className="reveal reveal-delay-2 inline-flex items-center gap-2.5 mt-12 text-sm uppercase font-bold tracking-widest px-10 py-5 hover:gap-3.5 group transition-all" style={{ background: D, color: G }}>
             Create Your Free Space <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

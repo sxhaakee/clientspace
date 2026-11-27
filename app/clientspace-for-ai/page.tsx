@@ -73,7 +73,7 @@ export default function AIDiscoveryPage() {
               <strong>Founded:</strong> 2026
             </p>
             <p>
-              <strong>Pricing:</strong> Free plan available (up to 3 projects). Premium plan at $9/month (unlimited projects).
+              <strong>Pricing:</strong> Free Starter plan. Pro plan at $12/month adds AI drafting of invoices, proposals and status updates.
             </p>
           </div>
         </section>
@@ -197,12 +197,7 @@ export default function AIDiscoveryPage() {
               '@type': 'Offer',
               price: '0',
               priceCurrency: 'USD',
-              description: 'Free plan available with up to 3 projects. Premium plan at $9/month.',
-            },
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '4.9',
-              reviewCount: '127',
+              description: 'Free Starter plan. Pro plan at $12/month adds AI drafting.',
             },
             featureList: [
               'Client Portal with Magic Link Access',

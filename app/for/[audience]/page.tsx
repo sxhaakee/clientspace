@@ -12,8 +12,6 @@ const AUDIENCES: Record<string, {
   icon: any;
   painPoints: string[];
   solutions: string[];
-  testimonialQuote: string;
-  testimonialAuthor: string;
   keywords: string[];
 }> = {
   'web-designers': {
@@ -36,8 +34,6 @@ const AUDIENCES: Record<string, {
       'A premium, branded portal that makes you look professional',
       'Digital e-signing with IP logging and timestamps',
     ],
-    testimonialQuote: 'My clients actually think I hired a dev team to build a custom portal. It\'s just ClientSpace.',
-    testimonialAuthor: 'Sarah K. — Freelance Web Designer',
     keywords: ['client portal for web designers', 'web design client management', 'freelance web designer tools', 'design deliverable sharing', 'web design project management'],
   },
   'video-editors': {
@@ -60,8 +56,6 @@ const AUDIENCES: Record<string, {
       'Invoice management built into the same portal',
       'A polished client experience that builds trust',
     ],
-    testimonialQuote: 'ClientSpace replaced Dropbox, email chains, and Google Docs for my client workflow.',
-    testimonialAuthor: 'Marcus T. — Freelance Video Editor',
     keywords: ['client portal for video editors', 'video editing client management', 'file delivery for video editors', 'freelance video editor tools', 'video project management software'],
   },
   'copywriters': {
@@ -84,8 +78,6 @@ const AUDIENCES: Record<string, {
       'Professional portal that positions you as an authority',
       'Milestone tracking to show clients the writing process',
     ],
-    testimonialQuote: 'Clients started referring me to other people just because of how organized my delivery process looks.',
-    testimonialAuthor: 'Priya M. — Freelance Copywriter',
     keywords: ['client portal for copywriters', 'freelance writing client management', 'copywriting project delivery', 'content writer tools', 'freelance copywriter software'],
   },
   'marketing-agencies': {
@@ -108,8 +100,6 @@ const AUDIENCES: Record<string, {
       'Integrated invoicing and contract management',
       'Activity timeline showing every project milestone',
     ],
-    testimonialQuote: 'We went from looking like a startup to looking like a premium agency overnight.',
-    testimonialAuthor: 'David L. — Digital Marketing Agency Owner',
     keywords: ['client portal for marketing agencies', 'agency client management', 'marketing agency tools', 'campaign delivery software', 'agency project management'],
   },
   'ui-ux-designers': {
@@ -132,8 +122,6 @@ const AUDIENCES: Record<string, {
       'Legal e-signing with timestamped contract execution',
       'Invoicing integrated into the project workspace',
     ],
-    testimonialQuote: 'My design clients finally understand the process. ClientSpace makes everything click.',
-    testimonialAuthor: 'Aisha R. — Product Designer',
     keywords: ['client portal for designers', 'UI UX client management', 'design deliverable software', 'freelance designer tools', 'design project management'],
   },
   'photographers': {
@@ -156,8 +144,6 @@ const AUDIENCES: Record<string, {
       'Invoice management with status tracking',
       'A premium portal that matches your creative brand',
     ],
-    testimonialQuote: 'My wedding clients are blown away by how professional the delivery process is now.',
-    testimonialAuthor: 'James W. — Wedding Photographer',
     keywords: ['client portal for photographers', 'photography client management', 'photo delivery software', 'photographer invoicing', 'photography business tools'],
   },
   'social-media-managers': {
@@ -180,8 +166,6 @@ const AUDIENCES: Record<string, {
       'Organized feedback by topic and month',
       'Professional portal that scales with your client base',
     ],
-    testimonialQuote: 'I manage 12 clients and ClientSpace keeps me sane. No more screenshots of WhatsApp approvals.',
-    testimonialAuthor: 'Nicole F. — Social Media Manager',
     keywords: ['client portal for social media managers', 'social media client management', 'content approval software', 'social media tools for freelancers', 'social media project management'],
   },
   'consultants': {
@@ -204,8 +188,6 @@ const AUDIENCES: Record<string, {
       'Professional invoicing with payment status',
       'A premium workspace that builds executive trust',
     ],
-    testimonialQuote: 'My $10K clients now get a $100K experience. ClientSpace changed my positioning overnight.',
-    testimonialAuthor: 'Robert H. — Strategy Consultant',
     keywords: ['client portal for consultants', 'consulting client management', 'consultant tools', 'consulting delivery software', 'professional services portal'],
   },
   'developers': {
@@ -228,8 +210,6 @@ const AUDIENCES: Record<string, {
       'Built-in invoicing with payment status tracking',
       'Digital e-signing to lock in scope and terms',
     ],
-    testimonialQuote: 'I used to send ZIP files over email. Now clients see a professional delivery portal.',
-    testimonialAuthor: 'Alex P. — Full-Stack Developer',
     keywords: ['client portal for developers', 'freelance developer tools', 'code delivery management', 'developer client management', 'freelance dev project management'],
   },
   'motion-designers': {
@@ -252,8 +232,6 @@ const AUDIENCES: Record<string, {
       'Integrated invoicing so payment follows delivery',
       'A branded portal that matches your creative standard',
     ],
-    testimonialQuote: 'My motion design clients finally see a polished delivery experience that matches the work quality.',
-    testimonialAuthor: 'Chris M. — Motion Designer',
     keywords: ['client portal for motion designers', 'motion design client management', 'animation delivery software', 'freelance motion designer tools', 'motion graphics project management'],
   },
 };
@@ -410,21 +388,6 @@ export default function AudiencePage({ params }: { params: { audience: string } 
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section className="py-16 md:py-20 px-5 md:px-12 border-t border-[#E4E4E7]">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-0.5 mb-4">
-            {[1,2,3,4,5].map(s => <Star key={s} size={16} className="text-[#F59E0B] fill-[#F59E0B]" />)}
-          </div>
-          <blockquote className="text-lg md:text-xl font-serif italic leading-relaxed mb-4 text-[#18181B]">
-            &ldquo;{data.testimonialQuote}&rdquo;
-          </blockquote>
-          <cite className="text-xs uppercase font-bold tracking-wider text-[#71717A] not-italic font-mono">
-            — {data.testimonialAuthor}
-          </cite>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-16 md:py-24 px-5 md:px-12 border-t border-[#E4E4E7] bg-[#18181B] text-white">
         <div className="max-w-3xl mx-auto text-center">
@@ -457,7 +420,7 @@ export default function AudiencePage({ params }: { params: { audience: string } 
               '@type': 'Offer',
               price: '0',
               priceCurrency: 'USD',
-              description: 'Free plan available. Premium plan at $9/month.',
+              description: 'Free Starter plan. Pro plan at $12/month adds AI drafting.',
             },
             aggregateRating: {
               '@type': 'AggregateRating',
